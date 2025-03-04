@@ -1,7 +1,7 @@
 """
 Modified from: https://github.com/tbardouille/papto_camcan/blob/main/01a_PAPTO_find_events.py 
 Original Authors: Brendan Brady, Timothy Bardouille
-Modified by: Lindsey Power, August 2024
+Modified by: Lindsey Power, March 2025
 """
 # Import libraries
 import os
