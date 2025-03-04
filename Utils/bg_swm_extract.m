@@ -1,3 +1,6 @@
+% Function taken from https://github.com/bartgips/SWM 
+% Author: Bart Gips 
+
 function [s, z, cfg]=bg_swm_extract(cfg, dat)
 % [s, z, cfg]=bg_swm_extract(cfg, dat)
 %
