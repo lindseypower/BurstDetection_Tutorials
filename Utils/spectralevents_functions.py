@@ -1,3 +1,9 @@
+"""
+Modified from: https://github.com/tbardouille/camcan_betaEvents_ageing/blob/master/spectralevents_functions.py
+Original Authors: Brendan Brady, Lindsey Power, Timothy Bardouille
+Modified by: Lindsey Power, March 2025
+"""
+
 import sys
 import numpy as np
 import scipy.signal as signal
