@@ -1,3 +1,6 @@
+% Function taken from https://github.com/bartgips/SWM 
+% Author: Bart Gips 
+
 function [cfg]=bg_SWM(cfg, dat)
 % [cfg]=bg_SWM(cfg, dat)
 %
