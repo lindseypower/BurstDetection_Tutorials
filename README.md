@@ -9,7 +9,7 @@ The *Tutorials* folder contains step-by-step worked examples demonstrating how e
  3. Extended Better Oscillation Detection (eBOSC)
  4. Cycle-by-Cycle Oscillation Detection
  5. Sliding Window Matching*
- 6. Convoutional Dictionary Learning*
+ 6. Convoutional Dictionary Learning (CDL)*
  7. Microstates Segmentation
  8. Time-delay embedding Hidden Markov Modelling (tde-HMM)
 
