@@ -15,6 +15,6 @@ The *Tutorials* folder contains step-by-step worked examples demonstrating how e
 
 *In some cases, additional utility scripts are required to run the burst detection method. In these cases, the required utility scripts are indicated at the start of the tutorial and the scripts are available for download in the *Utils* folder. Ensure that the required utility scripts are saved in the same folder as the associated tutorial before attempting to run the tutorial. 
 
-All other methods require installation of relevant python packages to execute the method. Please refer to the import list at the start of each tutorial for information on the required python packages. All packages can be installed using *pip install*.
+Mnay methods also require installation of specific python packages to execute the method. Please refer to the import list at the start of each tutorial for information on the required python packages. All packages can be installed using *pip install*.
 
 Note that this resource is a compilation of methods previously published in the scientific literature and therefore is largely *not* original work. Therefore, when using these methods, be sure to cite the appropriate original source. Links to documentation and publications from the original developers are embedded in the indidivual tutorials. More information on specific methods can also be found in our associated review article (*link here*) 
