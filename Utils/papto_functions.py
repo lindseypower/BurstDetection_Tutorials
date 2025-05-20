@@ -1,7 +1,7 @@
 """
 Modified from: https://github.com/tbardouille/papto_camcan/blob/main/01a_PAPTO_find_events.py 
 Original Authors: Brendan Brady, Timothy Bardouille
-Modified by: Lindsey Power, March 2025
+Modified by: Lindsey Power, August 2024
 """
 # Import libraries
 import os
@@ -154,7 +154,7 @@ def spectralevents_ts2tfr (S,fVec,Fs,width):
 # Function to compare threshold choice for spectral event code 
 def find_bestThreshold_papto(data, thresholds, Fs, width, fVec,fmin,fmax):
     columns = ['threshold', 'coef']
-    df_plot = pd.DataFrame(columns=columns)
+    df_plot_list = []
 
     # Calculate PSD
     PSD, PSD_fVec = mne.time_frequency.psd_array_welch(data, Fs, fmin=1, fmax=80, n_fft=1000, n_overlap=900)
@@ -204,14 +204,13 @@ def find_bestThreshold_papto(data, thresholds, Fs, width, fVec,fmin,fmax):
             total = np.size(spectrogram_thresholded)
             percent_of_pixels = count/total
             percents.append(percent_of_pixels)
-
+        
         # calculate correlation coefficient between spectrogram_avg_beta_power and percent_of_pixels
-        x = np.corrcoef(avg_powers, percents)[1,0]      
-        values = [threshold, x]
-        columns = ['threshold', 'coef']
-        dictionary = dict(zip(columns, values))
-        df_plot = df_plot.append(dictionary, ignore_index=True)
+        x = np.corrcoef(avg_powers, percents)[1,0]    
+        row = pd.DataFrame.from_dict({'threshold': [threshold], 'coef': [x]})  
+        df_plot_list.append(row)
     
+    df_plot = pd.concat(df_plot_list)
     return df_plot
 
 def spectralevents_find (findMethod, thrFOM, tVec, fVec, TFR, classLabels, neighbourhood_size, threshold, Fs):

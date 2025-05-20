@@ -1,9 +1,3 @@
-"""
-Modified from: https://github.com/tbardouille/camcan_betaEvents_ageing/blob/master/spectralevents_functions.py
-Original Authors: Brendan Brady, Lindsey Power, Timothy Bardouille
-Modified by: Lindsey Power, March 2025
-"""
-
 import sys
 import numpy as np
 import scipy.signal as signal
@@ -425,7 +419,7 @@ def percent_pixels(spectrogram_thresholded, span):
 def find_bestThreshold(data, thresholds, Fs, width, fVec):
 
     columns = ['threshold', 'coef']
-    df_plot = pd.DataFrame(columns=columns)
+    df_plot_list = []
 
     # Reshapes the data into 2 second epochs 
     chan_data = data[1000:-1000]
@@ -468,11 +462,11 @@ def find_bestThreshold(data, thresholds, Fs, width, fVec):
             percents.append(percent_of_pixels)
 
         # calculate correlation coefficient between spectrogram_avg_beta_power and percent_of_pixels
-        x = np.corrcoef(avg_powers, percents)[1,0]      
-        values = [threshold, x]
-        columns = ['threshold', 'coef']
-        dictionary = dict(zip(columns, values))
-        df_plot = df_plot.append(dictionary, ignore_index=True)
+        x = np.corrcoef(avg_powers, percents)[1,0]    
+        row = pd.DataFrame.from_dict({'threshold': [threshold], 'coef': [x]})  
+        df_plot_list.append(row)
+
+    df_plot = pd.concat(df_plot_list)
     
     return df_plot
 
